@@ -240,7 +240,7 @@ function updateScore(){
         sumT += timeArr[i];
     }
     let avg = sum/scoreArr.length;
-    avgScore.textContent = `Average Score: ${avg}`;
+    avgScore.textContent = `Average Score: ${avg.toFixed(2)}`;
     avgTime.textContent = `Average time: ${(sumT/timeArr.length).toFixed(2)} seconds`;
     let fast = Math.min(...timeArr);
     fastTime.textContent = `Fastest time: ${fast} seconds`;
