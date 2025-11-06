@@ -1,3 +1,14 @@
+  <style>
+  .flash-red {
+    animation: flashRedBg 0.7s 3;
+  }
+  @keyframes flashRedBg {
+    0% { background: inherit; }
+    30% { background: #ff3333; }
+    70% { background: #ff3333; }
+    100% { background: inherit; }
+  }
+  </style>
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,8 +16,11 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <p id="date"></p>
-
+  <p id="date"></p>
+  <h3>What's your Name?</h3>
+  <label for="nameInput">Name:</label>
+  <input type="text" id="nameInput" placeholder="Enter your name" />
+  <button id="nameBtn">Submit</button>
     <h3>Level</h3>
     <input type="radio" name="level" id="e" value="3" checked><label for="e">Easy</label>
     <input type="radio" name="level" id="m" value="10"><label for="m">Medium</label>
@@ -18,10 +32,24 @@
     <input type="text" id="guess">
     <button id="guessBtn" disabled>Guess</button>
     <button id="giveUp" disabled>Give Up</button>
+    <p id="timer">Time:</p>
+    <canvas id="confettiCanvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:999;display:none;"></canvas>
 
     <h3>Stats</h3>
     <p id="wins">Total wins: 0</p>
     <p id="avgScore">Average Score: </p>
+    <p id="fastTime">Fastest time: </p>
+    <p id="avgTime">Average time:</p>
+    <span id="timer"></span>
+    <style>
+    #timer {
+      display: inline-block;
+      transition: transform 0.2s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+    .bulge {
+      transform: scale(1.3);
+    }
+    </style>
 
     <h3>Leaderboard</h3>
     <ol>
